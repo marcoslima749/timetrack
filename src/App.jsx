@@ -94,17 +94,15 @@ function App() {
   return (
     <div className="container mx-auto">
       {chron.map((chron,index) => (
-        <div key={chron.id} className="timerContainer align-middle flex flex-col">
-          <h2>
+        <div key={chron.id} className="timerContainer align-middle inline-flex flex-col">
             <input
-              className="inputName text-2xl text-center align-middle"
+              className="text-center text-3xl"
               type="text"
               value={crhonNames[index]}
               onChange={(event) =>
                 handleNameChange(chron.id, event.target.value)
               }
             />
-          </h2>
           <div className="text-2xl text-center align-middle">
             Time: 
             {` ${chron.time.toTimeString().substring(0, 8)},${chron.time
@@ -112,9 +110,12 @@ function App() {
               .toString()
               .substring(0, 2)}`}
           </div>
-          <button className="bg-blue-400 hover:bg-blue-600" onClick={() => startChron(chron.id)}>Start</button>
-          <button className="button" onClick={() => stopChron(chron.id)}>Stop</button>
-          <button className="button" onClick={() => clearChron(chron.id)}>Clear</button>
+
+          <div className="">
+          <button className="button bg-sky-500 rounded text-neutral-200" onClick={() => startChron(chron.id)}>Start</button>
+          <button className="button bg-slate-400" onClick={() => stopChron(chron.id)}>Stop</button>
+          <button className="button bg-sky-400" onClick={() => clearChron(chron.id)}>Clear</button>
+          </div>
         </div>
       ))}
     </div>
